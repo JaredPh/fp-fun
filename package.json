@@ -1,7 +1,7 @@
 {
   "name": "fp-fun",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch --verbose"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
