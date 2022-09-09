@@ -58,7 +58,7 @@ export const isSome = <A>(option: Option<A>): option is Some<A> =>
 
 // fromNullable :: (A | undefined | null) -> Option A
 export const fromNullable = <A>(value: A | null | undefined): Option<A> =>
-  undefined as any;
+  value == null ? none() : some(value);
 
 /**
  * ▶️ Step 2 --------------------------------------------
@@ -75,11 +75,12 @@ export const fromNullable = <A>(value: A | null | undefined): Option<A> =>
  **/
 
 // getOrNull :: Option A -> A | null
-export const getOrNull = <A>(option: Option<A>): A | null => undefined as any;
+export const getOrNull = <A>(option: Option<A>): A | null =>
+  isSome(option) ? option.value : null;
 
 // getOrUndefined :: Option A -> A | null
 export const getOrUndefined = <A>(option: Option<A>): A | undefined =>
-  undefined as any;
+  isSome(option) ? option.value : undefined;
 
 /**
  * ▶️ Step 3 --------------------------------------------
@@ -100,7 +101,7 @@ export const getOrUndefined = <A>(option: Option<A>): A | undefined =>
 export const getOrElse =
   <A>(onNoneFn: () => A) =>
   (option: Option<A>): A =>
-    undefined as any;
+    isNone(option) ? onNoneFn() : option.value;
 
 /**
  * ▶️ Step 4 --------------------------------------------
@@ -124,7 +125,7 @@ export const getOrElse =
 export const map =
   <A, B>(onSomeFn: (a: A) => B) =>
   (option: Option<A>): Option<B> =>
-    undefined as any;
+    isNone(option) ? none() : some(onSomeFn(option.value));
 
 /**
  * ▶️ Step 5 --------------------------------------------
@@ -147,7 +148,7 @@ export const map =
 export const chain =
   <A, B>(onSomeFn: (a: A) => Option<B>) =>
   (option: Option<A>): Option<B> =>
-    undefined as any;
+    isNone(option) ? none() : onSomeFn(option.value);
 
 /**
  * ▶️ Step 6 --------------------------------------------
@@ -174,7 +175,7 @@ export const chain =
 export const chainNullable =
   <A, B>(onSomeFn: (a: A) => B | null | undefined) =>
   (option: Option<A>): Option<B> =>
-    undefined as any;
+    isNone(option) ? none() : fromNullable(onSomeFn(option.value));
 
 /**
  * ▶️ Finally --------------------------------------------

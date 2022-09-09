@@ -6,7 +6,7 @@ import {
   Person,
 } from "./option.examples";
 
-describe.skip("Option (examples)", () => {
+describe("Option (examples)", () => {
   describe("horses", () => {
     test("should describe a horse that doesn't exist", () => {
       const maybeHorse: undefined = undefined;
