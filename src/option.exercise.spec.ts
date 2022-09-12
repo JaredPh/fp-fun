@@ -75,7 +75,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 1 --------------------------------------------", () => {
+  describe("▶️ Step 1 --------------------------------------------", () => {
     describe("O.fromNullable", () => {
       test("should return a option with type `None` for undefined", () => {
         const value = undefined;
