@@ -58,7 +58,7 @@ export const isSome = <A>(option: Option<A>): option is Some<A> =>
 
 // fromNullable :: (A | undefined | null) -> Option A
 export const fromNullable = <A>(value: A | null | undefined): Option<A> => {
-  return (value === null || value === undefined) ? none(): some(value)
+  return value === null || value === undefined ? none() : some(value);
 };
 
 /**
@@ -76,11 +76,14 @@ export const fromNullable = <A>(value: A | null | undefined): Option<A> => {
  **/
 
 // getOrNull :: Option A -> A | null
-export const getOrNull = <A>(option: Option<A>): A | null => undefined as any;
+export const getOrNull = <A>(option: Option<A>): A | null => {
+  return isSome(option) ? option.value : null;
+};
 
 // getOrUndefined :: Option A -> A | null
-export const getOrUndefined = <A>(option: Option<A>): A | undefined =>
-  undefined as any;
+export const getOrUndefined = <A>(option: Option<A>): A | undefined => {
+  return isSome(option) ? option.value : undefined;
+};
 
 /**
  * ▶️ Step 3 --------------------------------------------

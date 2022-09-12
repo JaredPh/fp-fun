@@ -111,7 +111,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 2 --------------------------------------------", () => {
+  describe("▶️ Step 2 --------------------------------------------", () => {
     describe("O.getOrNull", () => {
       test("should return a value for a `Some`", () => {
         const option: O.Option<string> = { type: "Some", value: "foo" };
