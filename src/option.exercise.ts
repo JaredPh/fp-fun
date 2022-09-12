@@ -58,7 +58,7 @@ export const isSome = <A>(option: Option<A>): option is Some<A> =>
 
 // fromNullable :: (A | undefined | null) -> Option A
 export const fromNullable = <A>(value: A | null | undefined): Option<A> => {
-  return (value === null || value === undefined) ? {"type": "None"}: {"type": "Some", value}
+  return (value === null || value === undefined) ? none(): some(value)
 };
 
 /**
