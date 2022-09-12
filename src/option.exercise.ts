@@ -20,6 +20,8 @@
  *
  **/
 
+import { option } from "fp-ts";
+
 type None = { type: "None" };
 type Some<A> = { type: "Some"; value: A };
 
@@ -104,7 +106,7 @@ export const getOrUndefined = <A>(option: Option<A>): A | undefined => {
 export const getOrElse =
   <A>(onNoneFn: () => A) =>
   (option: Option<A>): A =>
-    undefined as any;
+    isSome(option) ? option.value : onNoneFn();
 
 /**
  * ▶️ Step 4 --------------------------------------------

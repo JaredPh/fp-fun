@@ -149,7 +149,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 3 --------------------------------------------", () => {
+  describe("▶️ Step 3 --------------------------------------------", () => {
     describe("O.getOrElse", () => {
       test("should return the value in the option for a `Some`", () => {
         const option: O.Option<string> = {
