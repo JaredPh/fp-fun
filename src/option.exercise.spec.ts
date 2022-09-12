@@ -75,7 +75,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 1 --------------------------------------------", () => {
+  describe("▶️ Step 1 --------------------------------------------", () => {
     describe("O.fromNullable", () => {
       test("should return a option with type `None` for undefined", () => {
         const value = undefined;
@@ -111,7 +111,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 2 --------------------------------------------", () => {
+  describe("▶️ Step 2 --------------------------------------------", () => {
     describe("O.getOrNull", () => {
       test("should return a value for a `Some`", () => {
         const option: O.Option<string> = { type: "Some", value: "foo" };
@@ -149,7 +149,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 3 --------------------------------------------", () => {
+  describe("▶️ Step 3 --------------------------------------------", () => {
     describe("O.getOrElse", () => {
       test("should return the value in the option for a `Some`", () => {
         const option: O.Option<string> = {
@@ -174,7 +174,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 4 --------------------------------------------", () => {
+  describe("▶️ Step 4 --------------------------------------------", () => {
     describe("O.map", () => {
       describe("where the input and output types are the same", () => {
         test("should return an option with a string changed to lowercase", () => {
@@ -274,7 +274,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 5 --------------------------------------------", () => {
+  describe("▶️ Step 5 --------------------------------------------", () => {
     describe("O.chain", () => {
       const fruits = [
         ["apple", "$0.20"],
@@ -319,7 +319,7 @@ describe("Option (functions)", () => {
     });
   });
 
-  describe.skip("▶️ Step 6 --------------------------------------------", () => {
+  describe("▶️ Step 6 --------------------------------------------", () => {
     describe("O.chainNullable", () => {
       const fruits = [
         ["apple", "$0.20"],
